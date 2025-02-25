@@ -30,9 +30,15 @@ body {
     cursor: pointer;
 }
 
-.radio-label input {
+.radio-label input[type="radio"] {
     width: auto;
     margin-right: 5px;
+}
+
+input[type="radio"] {
+    width: auto;
+    height: auto;
+    margin-right: 8px;
 }
 
 header {
