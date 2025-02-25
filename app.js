@@ -60,7 +60,7 @@ function loadApprovedPlayers() {
             snapshot.forEach((doc, index) => {
                 const player = doc.data();
                 const li = document.createElement('li');
-                li.textContent = `${index + 1}. ${player.name}`;
+                li.textContent = `${index + 1}. ${player.name || ''}`;
                 playerListElement.appendChild(li);
             });
         });
