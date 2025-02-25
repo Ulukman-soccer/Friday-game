@@ -57,11 +57,13 @@ function loadApprovedPlayers() {
                 return;
             }
             
-            snapshot.forEach((doc, index) => {
+            let playerNumber = 1;
+            snapshot.forEach(doc => {
                 const player = doc.data();
                 const li = document.createElement('li');
-                li.textContent = `${index + 1}. ${player.name || ''}`;
+                li.textContent = `${playerNumber}. ${player.name}`;
                 playerListElement.appendChild(li);
+                playerNumber++;
             });
         });
 }
