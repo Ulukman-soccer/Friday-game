@@ -145,12 +145,12 @@ function setupEventListeners() {
     // Signup form submission
     signupForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+    
         const nameInput = document.getElementById('player-name');
-        const paymentNoteInput = document.getElementById('payment-note');
+        const paymentYes = document.getElementById('payment-yes');
         
         const name = nameInput.value.trim();
-        const paymentNote = paymentNoteInput.value.trim();
+        const paymentSent = paymentYes.checked ? 'Yes' : 'No';
         
         if (!name) {
             showMessage('Please enter your name.', 'error');
@@ -160,14 +160,15 @@ function setupEventListeners() {
         // Add player request to database
         db.collection('players').add({
             name: name,
-            paymentNote: paymentNote,
+            paymentNote: paymentSent, // Keep the same field name for compatibility
             approved: false,
             timestamp: Date.now()
         })
         .then(() => {
             // Clear form and show success message
             nameInput.value = '';
-            paymentNoteInput.value = '';
+            document.getElementById('payment-no').checked = false;
+            document.getElementById('payment-yes').checked = false;
             showMessage('Your signup request has been submitted! The organizer will approve it soon.', 'success');
         })
         .catch(error => {
