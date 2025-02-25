@@ -57,13 +57,20 @@ function loadApprovedPlayers() {
                 return;
             }
             
-            let playerNumber = 1;
-            snapshot.forEach(doc => {
+            let counter = 1;
+            snapshot.forEach((doc) => {
                 const player = doc.data();
                 const li = document.createElement('li');
-                li.textContent = `${playerNumber}. ${player.name}`;
+                // Create text nodes separately to avoid NaN issues
+                const numberText = document.createTextNode(counter + ". ");
+                const nameText = document.createTextNode(player.name || "");
+                
+                // Append text nodes to li element
+                li.appendChild(numberText);
+                li.appendChild(nameText);
+                
                 playerListElement.appendChild(li);
-                playerNumber++;
+                counter++;
             });
         });
 }
