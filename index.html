@@ -32,8 +32,15 @@
                     <input type="text" id="player-name" placeholder="Enter name" required>
                 </div>
                 <div class="form-group">
-                    <label for="payment-note">Payment Note:</label>
-                    <input type="text" id="payment-note" placeholder="Zelle payment info/confirmation">
+                    <label>Did you send money through Zelle?</label>
+                    <div class="radio-options">
+                        <label class="radio-label">
+                            <input type="radio" name="payment-sent" id="payment-yes" value="yes"> Yes
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="payment-sent" id="payment-no" value="no"> No
+                        </label>
+                    </div>
                 </div>
                 <button type="submit">Submit Request</button>
             </form>
