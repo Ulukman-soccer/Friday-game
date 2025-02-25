@@ -1,0 +1,63 @@
+// index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soccer Game Signup</title>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Soccer Game Signup</h1>
+            <p id="spots-left">Loading available spots...</p>
+        </header>
+
+        <section id="player-list-section">
+            <h2>Current Players (Approved)</h2>
+            <ul id="player-list"></ul>
+        </section>
+
+        <section id="signup-section">
+            <h2>Sign Up for the Game</h2>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="player-name">Your Name:</label>
+                    <input type="text" id="player-name" placeholder="Enter name" required>
+                </div>
+                <div class="form-group">
+                    <label for="payment-note">Payment Note:</label>
+                    <input type="text" id="payment-note" placeholder="Zelle payment info/confirmation">
+                </div>
+                <button type="submit">Submit Request</button>
+            </form>
+            <div id="signup-message" class="message"></div>
+        </section>
+
+        <section id="admin-section" style="display: none;">
+            <h2>Admin Controls</h2>
+            <div class="admin-login-form" id="admin-login">
+                <input type="password" id="admin-password" placeholder="Admin password">
+                <button id="admin-login-btn">Login</button>
+            </div>
+            <div id="admin-controls" style="display: none;">
+                <h3>Pending Requests</h3>
+                <ul id="pending-list"></ul>
+            </div>
+        </section>
+
+        <footer>
+            <p>Organized by: Ulukman | Contact:</p>
+            <button id="toggle-admin">Admin</button>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
